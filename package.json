@@ -1,0 +1,35 @@
+{
+  "name": "eleventy-plugin-json-partials",
+  "version": "1.0.0",
+  "description": "For each @11ty index.html file with a permalink, create a JSON file to use in SPA routing patterns",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/logicallyabstract/eleventy-plugin-json-partials.git"
+  },
+  "keywords": [
+    "eleventy",
+    "11ty",
+    "plugin",
+    "json"
+  ],
+  "author": "Logically Abstract <aj@logicallyabstract.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/logicallyabstract/eleventy-plugin-json-partials/issues"
+  },
+  "homepage": "https://github.com/logicallyabstract/eleventy-plugin-json-partials#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.11"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.36",
+    "eslint": "^8.16.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.6.2",
+    "typescript": "^4.7.2"
+  }
+}
