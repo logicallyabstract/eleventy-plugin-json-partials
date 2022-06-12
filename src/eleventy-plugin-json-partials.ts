@@ -10,7 +10,7 @@ const DEFAULTS: EleventyPluginCreateJsonPartialsOptions = {
 
 export const eleventyPluginCreateJsonPartials =
   (opts: EleventyPluginCreateJsonPartialsOptions = {}) =>
-  async (content: string, outputPath: string) => {
+  async (content: string, outputPath?: string) => {
     /**
      * If the page has "permalink" set to false, do not
      * render a JSON file.

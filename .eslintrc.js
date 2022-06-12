@@ -1,11 +1,10 @@
 module.exports = {
-  extends: ['airbnb-typescript/base', 'prettier'],
+  extends: ['./node_modules/gts'],
   parserOptions: {
     project: './tsconfig.json',
   },
   rules: {
     'import/prefer-default-export': 'off',
-    'import/no-default-export': ['error'],
     'spaced-comment': 'off',
   },
   overrides: [
@@ -14,8 +13,6 @@ module.exports = {
       rules: {
         // do not require test/fixture imports to be in main deps
         'import/no-extraneous-dependencies': 'off',
-        // allow to.be.ok from chai
-        '@typescript-eslint/no-unused-expressions': 'off',
       },
     },
   ],

@@ -1,10 +1,10 @@
 import * as cheerio from 'cheerio';
-import { EleventyPluginCreateJsonPartials } from './types';
+import { EleventyPluginCreateJsonPartialsOptions } from './types';
 
 const WHITESPACE_REGEX = /\n\s*/g;
 
 export const constructPartial = (
-  options: EleventyPluginCreateJsonPartials,
+  options: EleventyPluginCreateJsonPartialsOptions,
   content: string,
 ) => {
   const { additionalScriptsSelector, partialContentSelector } = options;
