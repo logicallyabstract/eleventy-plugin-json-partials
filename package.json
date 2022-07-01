@@ -1,5 +1,5 @@
 {
-  "name": "eleventy-plugin-json-partials",
+  "name": "@logicallyabstract/eleventy-plugin-json-partials",
   "version": "0.0.1",
   "description": "For each @11ty index.html file generated, create a JSON partial file to use in SPA routing patterns",
   "main": "dist/index.js",
