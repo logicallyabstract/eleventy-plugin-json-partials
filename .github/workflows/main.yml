@@ -1,0 +1,37 @@
+name: Continuous Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  checks:
+    name: Run Checks and Deploy to dev tag
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run linting
+        run: npm run lint
+
+      - name: Run Unit Tests
+        run: npm test
+
+      - name: Set 'cd' package version
+        run: npm version $(node -p "require('./package.json').version")-cd.$GITHUB_SHA --no-git-tag-version
+
+      - name: Publish package with the 'cd' tag
+        run: npm publish --tag cd --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTOMATION_TOKEN }}

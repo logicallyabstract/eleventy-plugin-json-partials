@@ -1,9 +1,12 @@
 {
   "name": "eleventy-plugin-json-partials",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "For each @11ty index.html file generated, create a JSON partial file to use in SPA routing patterns",
   "main": "dist/index.js",
   "scripts": {
+    "build": "run-s build:clean build:compile",
+    "build:clean": "rimraf dist",
+    "build:compile": "tsc -p tsconfig.build.json",
     "eslint": "eslint --ext .js,.ts \"src/\" \"*.js\"",
     "lint": "run-s eslint typecheck",
     "test": "NODE_OPTIONS=\"-r ts-node/register\" mocha \"src/**/*.test.ts\" --extension ts",
@@ -28,6 +31,9 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.11"
   },
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "@types/chai": "^4.3.1",
     "@types/mocha": "^9.1.1",
@@ -40,6 +46,7 @@
     "mocha": "^10.0.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.6.2",
+    "rimraf": "^3.0.2",
     "sinon": "^14.0.0",
     "testdouble": "^3.16.5",
     "ts-node": "^10.8.1",
