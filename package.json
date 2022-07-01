@@ -6,7 +6,7 @@
   "scripts": {
     "build": "run-s build:clean build:compile",
     "build:clean": "rimraf dist",
-    "build:compile": "tsc",
+    "build:compile": "tsc -p tsconfig.build.json",
     "eslint": "eslint --ext .js,.ts \"src/\" \"*.js\"",
     "lint": "run-s eslint typecheck",
     "test": "NODE_OPTIONS=\"-r ts-node/register\" mocha \"src/**/*.test.ts\" --extension ts",
