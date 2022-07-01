@@ -32,20 +32,30 @@ import { expect } from 'chai';
 import * as fs from 'fs/promises';
 import { SinonStub, stub } from 'sinon';
 
-console.log(fs);
+import type * as m from './write-partial-file';
 
 describe('writePartialFile', () => {
   let mkdirStub: SinonStub;
   let writeFileStub: SinonStub;
 
-  beforeEach(() => {
+  let subject: typeof m;
+
+  beforeEach(async () => {
     mkdirStub = stub(fs, 'mkdir');
     writeFileStub = stub(fs, 'writeFile');
+
+    subject = await import('./write-partial-file');
   });
 
   it('should write the file', async () => {
     mkdirStub.withArgs('path', { recursive: true }).resolves(undefined);
-    writeFileStub.withArgs('path/index.json', HTML_A_RESULT).resolves(undefined);
+    writeFileStub
+      .withArgs('path/index.json', HTML_A_RESULT)
+      .resolves(undefined);
+
+    const { writePartialFile } = subject;
+
+    await writePartialFile('path/index.json', HTML_A_RESULT);
 
     expect(mkdirStub.getCalls()).to.have.length(1);
     expect(writeFileStub.getCalls()).to.have.length(1);

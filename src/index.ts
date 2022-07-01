@@ -1,1 +1,1 @@
-export * from './eleventy-plugin-json-partials';
+export * from './create-json-partials';

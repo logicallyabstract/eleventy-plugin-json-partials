@@ -6,9 +6,7 @@
   "scripts": {
     "eslint": "eslint --ext .js,.ts \"src/\" \"*.js\"",
     "lint": "run-s eslint typecheck",
-    "test": "mocha -r esbuild-runner/register \"src/**/*.test.ts\" --extension ts",
-    "test:doesntwork": "mocha -r esbuild-runner/register \"src/**/*.test.ts\" --extension ts",
-    "test:loader": "mocha --loader=./test-helpers/esbuild-loader.js \"src/**/*.test.ts\" --extension ts --experimental-import-meta-resolve",
+    "test": "NODE_OPTIONS=\"-r ts-node/register\" mocha \"src/**/*.test.ts\" --extension ts",
     "typecheck": "tsc --noEmit"
   },
   "repository": {
@@ -37,7 +35,6 @@
     "@types/sinon": "^10.0.11",
     "@typescript-eslint/eslint-plugin": "^5.27.1",
     "chai": "^4.3.6",
-    "esbuild-runner": "^2.2.1",
     "eslint": "^8.16.0",
     "gts": "^3.1.0",
     "mocha": "^10.0.0",
