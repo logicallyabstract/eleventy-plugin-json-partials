@@ -17,7 +17,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        uses: npm ci
+        run: npm ci
 
       - name: Run Unit Tests
-        uses: npm test
+        run: npm test
