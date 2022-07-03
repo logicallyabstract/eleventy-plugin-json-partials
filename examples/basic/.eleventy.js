@@ -1,16 +1,14 @@
-const { eleventyPluginCreateJsonPartials } = require('../../dist');
+const { eleventyJsonPartials } = require('../../dist');
 
 /**
  * This requires you to run `npm run build` first.
+ * Then from this directory, run `npx eleventy --serve`
  */
 
 module.exports = function (config) {
   const env = process.env.ELEVENTY_ENV || 'dev';
 
-  config.addTransform(
-    'create-json-partials',
-    eleventyPluginCreateJsonPartials(),
-  );
+  config.addPlugin(eleventyJsonPartials);
 
   const settings = {
     dir: {

@@ -1,1 +1,1 @@
-export * from './create-json-partials';
+export * from './plugin';

@@ -26,7 +26,7 @@ describe('eleventyPluginCreateJsonPartials', () => {
   });
 
   it('should call the plugin logic to create the partial file', async () => {
-    const { eleventyPluginCreateJsonPartials } = subject;
+    const { createJsonPartials } = subject;
 
     const options = {
       partialContentSelector: '#content',
@@ -40,7 +40,7 @@ describe('eleventyPluginCreateJsonPartials', () => {
       .withArgs('path/index.json', HTML_A_RESULT)
       .resolves(undefined);
 
-    const fn = eleventyPluginCreateJsonPartials(options);
+    const fn = createJsonPartials(options);
     const result = await fn(HTML_A, outputPath);
 
     expect(result).to.equal(HTML_A);
