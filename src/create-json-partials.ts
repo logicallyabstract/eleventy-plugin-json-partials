@@ -3,13 +3,13 @@ import { constructPartial } from './construct-partial';
 import { EleventyPluginCreateJsonPartialsOptions } from './types';
 import { writePartialFile } from './write-partial-file';
 
-const DEFAULTS: EleventyPluginCreateJsonPartialsOptions = {
+export const DEFAULTS: EleventyPluginCreateJsonPartialsOptions = {
   partialContentSelector: '#content',
   additionalScriptsSelector: 'script[data-componentscript]',
 };
 
-export const eleventyPluginCreateJsonPartials =
-  (opts: EleventyPluginCreateJsonPartialsOptions = {}) =>
+export const createJsonPartials =
+  (opts: EleventyPluginCreateJsonPartialsOptions) =>
   async (content: string, outputPath?: string) => {
     /**
      * If the page has "permalink" set to false, do not
